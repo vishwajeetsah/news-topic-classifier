@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "news-topic-classifier"
+version = "0.1.0"
+description = "News topic classifier: scikit-learn text classification on 20 Newsgroups."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Vishwajeet Sah" }]
+keywords = ["machine-learning", "nlp", "text-classification", "scikit-learn"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "scikit-learn>=1.3",
+    "numpy>=1.24",
+    "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+topicclf = "topicclf.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vishwajeetsah/news-topic-classifier"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
